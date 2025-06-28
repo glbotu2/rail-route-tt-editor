@@ -44,16 +44,16 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0">
                 <TextBlock Text="Headcode" />
-                <TextBox x:Name="Headcode" Width="100" Margin="0,0,0,5"></TextBox>
+                <TextBox x:Name="Headcode" Width="100" Margin="0,0,10,5"></TextBox>
                 <TextBlock Text="Penalty"/>
-                <CheckBox x:Name="Penalty" Margin="0,0,0,5"/>
+                <CheckBox x:Name="Penalty" Margin="0,0,10,5"/>
                 <TextBlock Text="Train Composition"/>
-                <TextBox x:Name="Composition" Width="100" Margin="0,0,0,5" PreviewTextInput="Composition_PreviewTextInput" />
+                <TextBox x:Name="Composition" Width="100" Margin="0,0,10,5" PreviewTextInput="Composition_PreviewTextInput" />
                 <TextBlock Text="Maximum Speed"/>
-                <TextBox x:Name="MaxSpeed" Margin="0,0,0,5" PreviewTextInput="MaxSpeed_PreviewTextInput" />
+                <TextBox x:Name="MaxSpeed" Margin="0,0,10,5" PreviewTextInput="MaxSpeed_PreviewTextInput" />
                 <TextBlock Text="Train Type"/>
-                <ComboBox x:Name="Classification" Margin="0,0,0,5" />
-                <Button x:Name="Complete" Content="Add Train" Click="Complete_Click"/>
+                <ComboBox x:Name="Classification" Margin="0,0,10,5" />
+                <Button x:Name="Complete" Margin="0,0,10,5" Content="Add Train" Click="Complete_Click"/>
             </StackPanel>
             <ListView 
                 x:Name="StationListView" 

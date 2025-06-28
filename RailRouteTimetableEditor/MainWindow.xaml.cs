@@ -66,7 +66,7 @@ namespace RailRouteTimetableEditor
 
                                             if (entry.Arrival < compareEntry.Arrival) 
                                             {
-                                                if (entry.Departure > compareEntry.Arrival - TimeSpan.FromMinutes(1))
+                                                if (entry.Departure >= compareEntry.Arrival - TimeSpan.FromMinutes(1))
                                                 {                                                    
                                                     train.HasCollision = true;
                                                     train.CollidesWith += $" {compare.HeadCode} - at {entry.Station.Name} platform {entry.Platform}, {entry.Arrival} - {entry.Departure} // {compareEntry.Arrival} - {compareEntry.Departure}";
@@ -78,7 +78,7 @@ namespace RailRouteTimetableEditor
                                             }
                                             else
                                             {
-                                                if (entry.Arrival < compareEntry.Departure + TimeSpan.FromMinutes(1))
+                                                if (entry.Arrival <= compareEntry.Departure + TimeSpan.FromMinutes(1))
                                                 {                                                    
                                                     train.HasCollision = true;
                                                     train.CollidesWith += $" {compare.HeadCode} - at {entry.Station.Name} platform {entry.Platform}, {entry.Arrival} - {entry.Departure} // {compareEntry.Arrival} - {compareEntry.Departure}";
@@ -400,6 +400,7 @@ namespace RailRouteTimetableEditor
             _isEditing = false;
             Headcode.IsEnabled = true;
             _buildingTimetable.Clear();
+            Complete.Content = "Add Train";
         }
 
         Station? _selectedStation = null;
@@ -543,7 +544,7 @@ namespace RailRouteTimetableEditor
             {
                 _timetable.Add(_currentTrain);
             }
-            RefreshTimetableList();
+            RefreshTimetableList();            
         }
 
         private void RefreshTimetableList()
@@ -708,7 +709,8 @@ namespace RailRouteTimetableEditor
 
             _buildingTimetable.Clear();
             _currentTrain.TimeTable.ForEach(_buildingTimetable.Add);
-            
+
+            Complete.Content = "Update";            
         }
 
         private void Delete_Click_1(object sender, RoutedEventArgs e)
